@@ -2,8 +2,8 @@
 /**
 * Plugin Name: posteebreak
 * Plugin URI: https://github.com/bortsparkle/posteebreak
-* Description: Breaks plaintext posts from Postie into paragraph blocks at blank lines
-* Version: 0.0.2022.02.27.1254
+* Description: Breaks plaintext posts from Postie into paragraphs at blank lines while removing runs of whitespace
+* Version: 0.0.2022.02.27.1303
 * Author: Someone Else
 * Author URI: https://github.com/bortsparkle
 **/
@@ -35,7 +35,7 @@ function posteebreak_filter_postie($post) {
     $filtered = join($lines, "\t");
 
     // and replace all line breaks or runs of blank lines with a single blank line
-    $filtered = preg_replace("\t+", "\n\n", $filtered);
+    $filtered = preg_replace("/\t+/", "\n\n", $filtered);
 
 
     $post['text'] = $filtered;
