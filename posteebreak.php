@@ -3,7 +3,7 @@
 * Plugin Name: posteebreak
 * Plugin URI: https://github.com/bortsparkle/posteebreak
 * Description: Breaks plaintext posts from Postie into paragraph blocks at blank lines
-* Version: 0.0.2022.02.27.1124
+* Version: 0.0.2022.02.27.1128
 * Author: Someone Else
 * Author URI: https://github.com/bortsparkle
 **/
@@ -12,7 +12,7 @@ function posteebreak_filter_postie_post($post) {
     //do something here like update $post['post_content']
 
     $filtered = "filtered by posteebreak\n";
-    $filtered .= $filtered;
+    $filtered .= $post['post_content'];
     $filtered .= "\nand now it is done filtering";
 
     $post['post_content'] = $filtered;
